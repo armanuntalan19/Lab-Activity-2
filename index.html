@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn Python Through Practice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EEF2F6;
+    --paper-line:#D7E0E9;
+    --ink:#1C2B44;
+    --ink-soft:#4B5A72;
+    --margin-red:#D6564D;
+    --yellow:#F5C518;
+    --teal:#2E8B84;
+    --code-bg:#16233A;
+    --code-text:#E8EEF5;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image: repeating-linear-gradient(
+        to bottom,
+        transparent 0px, transparent 38px,
+        var(--paper-line) 39px
+      );
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+  }
+
+  .page{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 28px 90px 60px;
+    position:relative;
+    border-left:2px solid var(--margin-red);
+    margin-left: max(16px, calc(50vw - 380px - 30px));
+  }
+
+  @media (max-width:700px){
+    .page{ margin-left:16px; padding-left:28px; }
+  }
+
+  header{
+    padding:70px 0 40px;
+  }
+
+  .kicker{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.85rem;
+    color:var(--teal);
+    margin:0 0 14px;
+  }
+
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(2rem, 5vw, 2.8rem);
+    line-height:1.15;
+    margin:0 0 18px;
+  }
+
+  header p{
+    font-size:1.08rem;
+    color:var(--ink-soft);
+    max-width:52ch;
+    margin:0;
+  }
+
+  section{
+    padding:44px 0;
+  }
+
+  section + section{
+    border-top:1px solid #D7E0E9;
+  }
+
+  h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:1.4rem;
+    margin:0 0 12px;
+  }
+
+  section p{
+    color:var(--ink-soft);
+    max-width:58ch;
+    margin:0 0 18px;
+  }
+
+  code.inline{
+    font-family:'JetBrains Mono', monospace;
+    background:#E1E9F1;
+    color:var(--ink);
+    padding:2px 6px;
+    border-radius:4px;
+    font-size:0.92em;
+  }
+
+  .code-block{
+    background:var(--code-bg);
+    color:var(--code-text);
+    border-radius:10px;
+    padding:18px 20px;
+    overflow-x:auto;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.92rem;
+    line-height:1.65;
+    white-space:pre;
+    border-left:4px solid var(--yellow);
+  }
+
+  .code-block .c1{ color:#8FD3CB; font-style:italic; }
+  .code-block .c2{ color:#F5C518; font-weight:700; }
+
+  .output{
+    margin-top:12px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+  }
+  .output span{
+    display:block;
+    background:#fff;
+    border:1px solid var(--paper-line);
+    border-radius:6px;
+    padding:4px 10px;
+    margin-right:6px;
+  }
+
+  .try-it{
+    padding:60px 0 20px;
+  }
+
+  .try-it h2{
+    font-size:1.9rem;
+  }
+
+  .compiler-frame{
+    margin-top:20px;
+    border-radius:12px;
+    overflow:hidden;
+    border:2px solid var(--ink);
+  }
+
+  iframe{
+    width:100%;
+    height:480px;
+    border:none;
+    display:block;
+  }
+
+  @media (max-width:700px){
+    iframe{ height:75vh; }
+  }
+
+  footer{
+    padding:50px 0 10px;
+    color:var(--ink-soft);
+    font-size:0.9rem;
+  }
+
+  a{ color:var(--teal); }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header>
+    <p class="kicker">lesson 01 · python</p>
+    <h1>Learn Python by doing, not just reading.</h1>
+    <p>A short, hands-on walkthrough of the basics then a real code editor at the bottom so you can try everything yourself, right here in the browser.</p>
+  </header>
+
+  <section>
+    <h2>What is Python?</h2>
+    <p>Python is a programming language known for reading almost like plain English. It's a great first language because you spend less time dealing with punctuation and more time solving problems.</p>
+  </section>
+
+  <section>
+    <h2>1. Printing something to the screen</h2>
+    <p>The <code class="inline">print()</code> function shows text on the screen. Whatever you put inside the parentheses gets displayed.</p>
+    <div class="code-block">print(<span class="c1">"Hello, world!"</span>)</div>
+    <div class="output"><span>Hello, world!</span></div>
+  </section>
+
+  <section>
+    <h2>2. Storing values in variables</h2>
+    <p>A variable is a named box that holds a value. You create one just by giving it a name and a value with <code class="inline">=</code>.</p>
+    <div class="code-block">name = <span class="c1">"Clark"</span>
+age = <span class="c2">20</span>
+print(<span class="c1">"Hi, I'm"</span>, name, <span class="c1">"and I'm"</span>, age, <span class="c1">"years old"</span>)</div>
+    <div class="output"><span>Hi, I'm Clark and I'm 20 years old</span></div>
+  </section>
+
+  <section>
+    <h2>3. Making decisions with if</h2>
+    <p>An <code class="inline">if</code> statement runs code only when a condition is true.</p>
+    <div class="code-block">age = <span class="c2">16</span>
+<span class="c2">if</span> age >= <span class="c2">13</span>:
+    print(<span class="c1">"You're a teenager."</span>)
+<span class="c2">else</span>:
+    print(<span class="c1">"Not a teenager yet."</span>)</div>
+    <div class="output"><span>You're a teenager.</span></div>
+  </section>
+
+  <section>
+    <h2>4. Repeating with a loop</h2>
+    <p>A <code class="inline">for</code> loop repeats a block of code once for every item in a list.</p>
+    <div class="code-block">subjects = [<span class="c1">"math"</span>, <span class="c1">"art"</span>, <span class="c1">"coding"</span>]
+<span class="c2">for</span> subject <span class="c2">in</span> subjects:
+    print(<span class="c1">"I'm learning"</span>, subject)</div>
+    <div class="output"><span>I'm learning math</span><span>I'm learning art</span><span>I'm learning coding</span></div>
+  </section>
+
+  <section>
+    <h2>5. Doing math</h2>
+    <p>Python can do arithmetic like a calculator. Use <code class="inline">+</code> to add and <code class="inline">-</code> to subtract.</p>
+    <div class="code-block">allowance = <span class="c2">1000</span>
+spent = <span class="c2">599</span>
+left = allowance - spent
+print(<span class="c1">"I have"</span>, left, <span class="c1">"pesos left"</span>)</div>
+    <div class="output"><span>I have 401 pesos left</span></div>
+  </section>
+
+  <section class="try-it">
+    <h2>Now you try it</h2>
+    <p>This is a real, working Python editor. Change the code, hit run, and see what happens you can't break anything.</p>
+    <div class="compiler-frame">
+      <iframe
+        src="https://onecompiler.com/embed/python?hideNew=true&hideNewFileOption=true&hideLanguageSelection=true&theme=dark"
+        title="Python online compiler">
+      </iframe>
+    </div>
+  </section>
+
+  <footer>
+    Built for students taking their first steps in Python. Deployed with Netlify.
+  </footer>
+</div>
+</body>
+</html>
